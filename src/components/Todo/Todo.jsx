@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import './index.scss'
 import { useDispatch, useSelector } from 'react-redux'
+import { addTodo } from '../../actions'
 
 function Todo() {
     const dispatch = useDispatch()
-    const { text, todo } = useSelector((state) => state)
-    
+    const [text, setText] = useState('')
 
-    if (text && !todo.includes(text)) {
-        dispatch({ type: 'todo', payload: text })
-    }
-    const addText = (e) => {
-        e.preventDefault()
-        dispatch({ type: 'text', payload: e.target.todo.value })
-        e.target.todo.value = ''
-    }
+    // const addText = (e) => {
+    //     e.preventDefault()
+    //     setText(e.target.todo.value)
+    //     e.target.todo.value = ''
+    // }
 
     return (
         <div className='todo container'>
@@ -22,13 +19,13 @@ function Todo() {
 
                 <h1 className='todo__text'>To Do</h1>
 
-                <form className='todo__form form' onSubmit={(e) => addText(e)}>
+                <div className='todo__form form'>
                     <div className="form__inner">
-                        <input name="todo" type="text" className='form__input' />
+                        <input name="todo" type="text" value={text} onChange={(e) => setText(e.target.value)} className='form__input' />
                     </div>
 
-                    <button type="submit" className='form__btn' >Submit</button>
-                </form>
+                    <button type="submit" className='form__btn' onClick={() => dispatch(addTodo(text), setText(''))}>Submit</button>
+                </div>
 
             </div>
         </div>
