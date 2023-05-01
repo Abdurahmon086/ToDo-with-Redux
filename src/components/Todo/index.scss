@@ -1,0 +1,51 @@
+.todo {
+    background: #b3a8a8;
+
+    &__wrapper {
+        padding: 20px;
+    }
+
+    &__text {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+        margin-top: 20px;
+
+        .form {
+            &__inner {
+                width: 60%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            &__label {
+                font-weight: 700;        
+            }
+
+            &__input {
+                padding: 10px 22px;
+                border: none;
+                outline: none;
+                margin: 10px 0;
+                border-radius: 10px;
+            }
+
+            &__btn {
+                padding: 10px 50px;
+                border: none;
+                border-radius: 10px;
+                font-size: 18px;
+                font-weight: 700;
+                background: #da6744;
+                color: aliceblue;
+            }
+        }
+    }
+}
